@@ -24,7 +24,7 @@ RUN sed -i "\$aUserKnownHostsFile \/dev\/null" /etc/ssh/ssh_config
 
 RUN npm install express
 RUN npm install node-red@0.20.5 -g --unsafe-perm
-RUN npm install pm2 -g
+RUN npm install forever -g
 RUN npm install ts-node -g
 RUN npm install @exlinc/keycloak-passport
 RUN mkdir -p /var/log/vino
@@ -52,4 +52,4 @@ EXPOSE 3000
 
 ENTRYPOINT ["/opt/vino/common/docker_entrypoint.sh"]
 
-CMD ["pm2", "start", "--no-daemon", "vino-core.json"]
+CMD ["forever", "-c", "node --max_old_space_size=8192", "vino-core.json"]

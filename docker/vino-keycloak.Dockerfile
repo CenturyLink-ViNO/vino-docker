@@ -7,4 +7,4 @@ ADD vino-core/etc/docker/common/keycloak_docker_entrypoint.sh /opt/jboss/startup
 
 RUN chmod +x /opt/jboss/startup-scripts/db_wait.sh
 
-CMD ["-b", "0.0.0.0", "-Dkeycloak.migration.action=import" , "-Dkeycloak.migration.provider=dir", "-Dkeycloak.migration.dir=/opt/vino/config", "-Dkeycloak.migration.strategy=IGNORE_EXISTING"]
+CMD ["-b", "0.0.0.0"]
