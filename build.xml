@@ -84,20 +84,11 @@
               <include name="**/*"/>
           </fileset>
        </copy>
-       <copy todir="${image.dir}/vino-core">
-           <fileset dir="${vino-core-nodes-dir}">
-               <include name="**/*"/>
-               <exclude name="build.xml"/>
-           </fileset>
-       </copy>
-
-        <copy todir="${image.dir}/vino-core/nodes">
-            <fileset dir="${vino-node-red-nodes-dir}">
-                <include name="**/*"/>
-                <exclude name="build.xml"/>
+        <copy todir="${docker-prep.dir}/vino-core">
+            <fileset dir="${vino-core-dir}/tmp/npm/npm.build">
+                <include name="*.tgz"/>
             </fileset>
         </copy>
-
         <copy todir="${image.dir}/vino-core/nodes/abacus">
             <fileset dir="${tree.top}/lib/abacus-nodelib-util/src/main/js/nodes">
                 <include name="**/*"/>

@@ -38,13 +38,9 @@ RUN chmod +x /opt/vino/common/wait-for-postgres.sh
 
 RUN npm install .
 
-WORKDIR /opt/vino/vino-core/nodes
-
-RUN npm install .
-
-WORKDIR /opt/vino/vino-core/nodes/abacus
-
-RUN npm install .
+RUN mkdir ./nodes/lib
+RUN cp -r ./node_modules/vino-core-nodes/lib/ui ./nodes/lib
+RUN cp -r ./node_modules/vino-node-red-nodes/lib/ui ./nodes/lib
 
 WORKDIR /opt/vino/vino-core
 
